@@ -24,4 +24,10 @@ public class RealNumber {
     RealNumber R = new RealNumber(this.getValue() + other.getValue());
     return R;
   }
+
+  public RealNumber multiply(RealNumber other) {
+    RealNumber R = new RealNumber(this.getValue() * other.getValue());
+    return R;
+  }
+
 }
