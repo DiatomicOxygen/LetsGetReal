@@ -30,4 +30,8 @@ public class RealNumber {
     return R;
   }
 
+  public RealNumber divide(RealNumber other) {
+    RealNumber R = new RealNumber(this.getValue() / other.getValue());
+    return R;
+  }
 }
