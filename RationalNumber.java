@@ -14,4 +14,19 @@ public class RationalNumber extends RealNumber {
       numerator = 0;
     }
   }
+
+  public double getValue(){
+    if (numerator < 0) {
+      return -1 * (double)(numerator) / (double)(denominator);
+    }
+    return (double)(numerator) / (double)(denominator);
+  }
+
+  public int getNumerator(){
+    return numerator;
+  }
+
+  public int getDenominator(){
+    return denominator;
+  }
 }
