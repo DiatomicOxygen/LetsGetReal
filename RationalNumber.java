@@ -46,4 +46,24 @@ public class RationalNumber extends RealNumber {
     return numerator + "/" + denominator;
   }
 
+  private static int gcd(int a, int b) {
+    int A = Math.max(Math.abs(a),Math.abs(b));
+    int B = Math.min(Math.abs(a),Math.abs(b));
+    int r = 1;
+    while (r > 0) {
+      r = A % B;
+      A = B;
+      B = r;
+    }
+    return A;
+  }
+
+  private void reduce(){
+    if (numerator != 0) {
+      int gcd = gcd(numerator, denominator);
+      numerator = numerator / gcd;
+      denominator = denominator / gcd;
+    }
+  }
+
 }
