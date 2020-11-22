@@ -75,4 +75,28 @@ public class RationalNumber extends RealNumber {
     RationalNumber R = new RationalNumber(this.getNumerator() * other.getDenominator(), this.getDenominator() * other.getNumerator());
     return R;
   }
+
+  public RationalNumber add(RationalNumber other){
+    int nume = this.getNumerator() * Math.abs(other.getDenominator()) + other.getNumerator() * Math.abs(this.getDenominator());
+    int deno = Math.abs(this.getDenominator() * other.getDenominator());
+    if (nume == 0) {
+      RationalNumber R0 = new RationalNumber(nume, 1);
+      return R0;
+    }
+    int gcd = gcd(nume, deno);
+    RationalNumber R = new RationalNumber(nume/gcd, deno/gcd);
+    return R;
+  }
+
+  public RationalNumber subtract(RationalNumber other){
+    int nume = this.getNumerator() * Math.abs(other.getDenominator()) - other.getNumerator() * Math.abs(this.getDenominator());
+    int deno = Math.abs(this.getDenominator() * other.getDenominator());
+    if (nume == 0) {
+      RationalNumber R0 = new RationalNumber(nume, 1);
+      return R0;
+    }
+    int gcd = gcd(nume, deno);
+    RationalNumber R = new RationalNumber(nume/gcd, deno/gcd);
+    return R;
+  }
 }
