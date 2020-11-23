@@ -3,16 +3,17 @@ public class RationalNumber extends RealNumber {
 
   public RationalNumber(int nume, int deno){
     super(0.0);
-    numerator = nume;
-    denominator = deno;
-    if (nume < 0 || deno < 0) {
+    numerator = Math.abs(nume);
+    denominator = Math.abs(deno);
+    if (nume * deno < 0) {
       numerator = Math.abs(nume) * -1;
-      denominator = Math.abs(deno) * -1;
+      denominator = Math.abs(deno);
     }
-    if (deno == 0) {
+    if (deno == 0 || nume == 0) {
       denominator = 1;
       numerator = 0;
     }
+    reduce();
   }
 
   public double getValue(){
@@ -30,6 +31,7 @@ public class RationalNumber extends RealNumber {
     return denominator;
   }
 
+  //Assignment 20
   public RationalNumber reciprocal(){
     RationalNumber R = new RationalNumber(denominator, numerator);
     return R;
@@ -40,9 +42,6 @@ public class RationalNumber extends RealNumber {
   }
 
   public String toString(){
-    if (numerator < 0) {
-      return numerator + "/" + (denominator * -1);
-    }
     return numerator + "/" + denominator;
   }
 
@@ -77,8 +76,8 @@ public class RationalNumber extends RealNumber {
   }
 
   public RationalNumber add(RationalNumber other){
-    int nume = this.getNumerator() * Math.abs(other.getDenominator()) + other.getNumerator() * Math.abs(this.getDenominator());
-    int deno = Math.abs(this.getDenominator() * other.getDenominator());
+    int nume = this.getNumerator() * other.getDenominator() + other.getNumerator() * this.getDenominator();
+    int deno = this.getDenominator() * other.getDenominator();
     if (nume == 0) {
       RationalNumber R0 = new RationalNumber(nume, 1);
       return R0;
@@ -89,8 +88,8 @@ public class RationalNumber extends RealNumber {
   }
 
   public RationalNumber subtract(RationalNumber other){
-    int nume = this.getNumerator() * Math.abs(other.getDenominator()) - other.getNumerator() * Math.abs(this.getDenominator());
-    int deno = Math.abs(this.getDenominator() * other.getDenominator());
+    int nume = this.getNumerator() * other.getDenominator() - other.getNumerator() * this.getDenominator();
+    int deno = this.getDenominator() * other.getDenominator();
     if (nume == 0) {
       RationalNumber R0 = new RationalNumber(nume, 1);
       return R0;

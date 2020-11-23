@@ -13,6 +13,7 @@ public class RealNumber {
     return ""+getValue();
   }
 
+  //Assignment 20
   public boolean equals(RealNumber other) {
     if (this.getValue() == 0 || other.getValue() == 0) {
       return this.getValue() == 0 && other.getValue() == 0;
@@ -39,4 +40,5 @@ public class RealNumber {
     RealNumber R = new RealNumber(this.getValue() - other.getValue());
     return R;
   }
+
 }
