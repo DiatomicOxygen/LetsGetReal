@@ -42,6 +42,12 @@ public class RationalNumber extends RealNumber {
   }
 
   public String toString(){
+    if (numerator == 0) {
+      return 0 + "";
+    }
+    if (denominator == 1) {
+      return numerator + "";
+    }
     return numerator + "/" + denominator;
   }
 
