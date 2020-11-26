@@ -11,5 +11,10 @@ public abstract class Number {
     return -1;
   }
 
-  
+  public boolean equals(Number other){
+    if (this.getValue() == 0 || other.getValue() == 0) {
+      return this.getValue() == 0 && other.getValue() == 0;
+    }
+    return (Math.abs((this.getValue() - other.getValue())/other.getValue()) < .00001);
+  }
 }
